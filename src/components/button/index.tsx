@@ -19,7 +19,7 @@ const BUTTON_STYLE: Record<ButtonType, string> = {
 
 type ButtonProps = {
   onClick: () => void;
-  label?: string;
+  label?: any;
   type?: ButtonType;
   isDisabled?: boolean;
 };

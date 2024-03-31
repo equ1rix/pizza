@@ -10,6 +10,7 @@ type CardProps = {
   src?: string;
   alt?: string;
   label?: string;
+  type?: string;
   onAdd?: () => void;
   openDetails?: () => void;
 };
@@ -21,17 +22,23 @@ const Card = ({
   price = 0,
   onAdd = mock,
   openDetails = mock,
+  type = "",
 }: CardProps) => {
   return (
     <div className="p-4 flex flex-col justify-center min-w-[260px] ">
-      <img src={src} alt={alt} className="mb-2 mx-auto" onClick={openDetails} />
+      <img
+        src={src}
+        alt={alt}
+        className="mb-2 mx-auto max-w-[230px]"
+        onClick={openDetails}
+      />
       <label className="text-black text-3xl font-bold flex items-center justify-center mb-4">
         {label}
       </label>
       <PizzaCustomization />
       <div className="flex justify-between m-2">
         <p className="text-black text-2xl font-semibold">{price}$</p>
-        <Button onClick={onAdd} label="+ ADD" />
+        <Button onClick={onAdd} label="+ ADD" type={type} />
       </div>
     </div>
   );

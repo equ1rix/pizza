@@ -64,5 +64,7 @@ export const mockData = [
     dough: "thin",
     size: 12,
     price: 10.99,
+    quantity: 2,
+    totalPrice: 10.99 * 2,
   },
 ];

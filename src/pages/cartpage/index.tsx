@@ -12,12 +12,18 @@ import { Link } from "react-router-dom";
 
 const Cartpage = () => {
   const state = useSelector(selectPizza);
-  const quantity = state.length;
+  const quantity = state.reduce((total, pizza) => total + pizza.quantity, 0);
+  const price = state.reduce((total, pizza) => total + pizza.totalPrice, 0);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 p-4">
       <div className="max-w-[1450px] max-h-[800px] rounded-2xl bg-white overflow-hidden">
-        <Header src={<LogoIcon />} openCart={mock} quantity={quantity} />
+        <Header
+          src={<LogoIcon />}
+          openCart={mock}
+          quantity={quantity}
+          price={price}
+        />
         <div className="flex p-4 place-items-center">
           <CartIcon width={40} height={40} fill="#000000" />
           <h2 className="text-black font-bold text-2xl ">CART</h2>
@@ -32,12 +38,15 @@ const Cartpage = () => {
           <Link to="/ ">
             <Button onClick={mock} label="<- Go Back" type="DISABLED" />
           </Link>
-          <Button
-            onClick={() => {
-              alert("You don't have money))");
-            }}
-            label="Pay"
-          />
+          <div className="flex place-items-center">
+            <p className="m-3 text-black font-bold text-2xl">{price}$</p>
+            <Button
+              onClick={() => {
+                alert("You don't have money))");
+              }}
+              label="Pay"
+            />
+          </div>
         </div>
       </div>
     </div>

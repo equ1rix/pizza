@@ -1,9 +1,12 @@
 import { mock } from "../../helpers";
 import React from "react";
 import { DeleteButton } from "../iconbuttons";
+import { useDispatch } from "react-redux";
+import { removePizza } from "../../redux/actions";
 
 type CartElementProps = {
   openDetails?: () => void;
+  onDelete: () => void;
   size?: number;
   price?: number;
   src?: string;
@@ -14,6 +17,7 @@ type CartElementProps = {
 
 const CartElement = ({
   size = 10,
+  onDelete = mock,
   dough = "thin",
   src = "",
   label = "Pepperoni",
@@ -37,7 +41,7 @@ const CartElement = ({
       </div>
       <div>{quantity}</div>
       <div className="text-black font-bold text-xl">{price}$</div>
-      <DeleteButton onClick={mock} />
+      <DeleteButton onClick={onDelete} />
     </div>
   );
 };

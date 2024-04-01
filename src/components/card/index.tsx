@@ -15,13 +15,6 @@ type CardProps = {
   src?: string;
   name?: string;
   type?: string;
-  onAdd?: (
-    id: number,
-    label: string,
-    dough: string,
-    size: number,
-    price: number
-  ) => void;
   openDetails?: () => void;
 };
 

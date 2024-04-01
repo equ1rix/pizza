@@ -5,17 +5,11 @@ import Card from "../card";
 
 const PizzaCards = ({}) => {
   return (
-    <div className="flex flex-wrap justify-start">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 justify-items-center align-items-center gap-4 p-4 overflow-y-auto max-h-full">
       {pizzas.map((el) => {
         return (
-          <div className="w-[280px]">
-            <Card
-              key={el.id}
-              src={el.src}
-              alt={el.name}
-              label={el.name}
-              type="ADD"
-            />
+          <div key={el.id} className="w-[280px] h-[450px]">
+            <Card {...el} type="ADD" />
           </div>
         );
       })}

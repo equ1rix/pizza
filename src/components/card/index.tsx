@@ -4,25 +4,34 @@ import { mock } from "../../helpers";
 
 import PizzaCustomization from "../pizzacustomization";
 import Button from "../button";
+import { useDispatch } from "react-redux";
+import { ADD_PIZZA } from "../../redux/actions";
+import store from "../../redux/store";
+import { useSelector } from "react-redux";
 
 type CardProps = {
+  id: number;
   prices?: {
     [type: string]: { [key: number]: number };
   };
   src?: string;
-  alt?: string;
-  label?: string;
+  name?: string;
   type?: string;
-  onAdd?: () => void;
+  onAdd?: (
+    id: number,
+    label: string,
+    dough: string,
+    size: number,
+    price: number
+  ) => void;
   openDetails?: () => void;
 };
 
 const Card = ({
+  id,
   src = "",
-  alt = "",
-  label = "",
+  name = "",
   prices,
-  onAdd = mock,
   openDetails = mock,
   type = "",
 }: CardProps) => {
@@ -37,17 +46,31 @@ const Card = ({
     setPizzaSize(size);
   };
   const defaultPrice = prices?.[doughType]?.[pizzaSize] || 0;
+  const dispatch = useDispatch();
+
+  const handleAddButtonClick = () => {
+    dispatch({
+      type: ADD_PIZZA,
+      payload: {
+        id,
+        label: name,
+        dough: doughType,
+        size: pizzaSize,
+        price: defaultPrice,
+      },
+    });
+  };
 
   return (
     <div className="p-4 flex flex-col justify-center min-w-[260px] h-[426px]">
       <img
         src={src}
-        alt={alt}
+        alt={name}
         className="mb-2 mx-auto max-w-[230px] max-h-[230px]"
         onClick={openDetails}
       />
       <label className="text-black text-3xl font-bold flex items-center justify-center mb-4">
-        {label}
+        {name}
       </label>
       <PizzaCustomization
         dough={doughType}
@@ -58,7 +81,7 @@ const Card = ({
 
       <div className="flex justify-between m-2">
         <p className="text-black text-2xl font-semibold">{defaultPrice}$</p>
-        <Button onClick={onAdd} label="+ ADD" type={type} />
+        <Button onClick={handleAddButtonClick} label="+ ADD" type={type} />
       </div>
     </div>
   );

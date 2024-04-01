@@ -8,7 +8,7 @@ type LogoIconProps = {
 const LogoIcon = ({ width = 70, height = 70 }: LogoIconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    enable-background="new 0 0 50 50"
+    enableBackground="new 0 0 50 50"
     viewBox="0 0 50 50"
     id="pizza"
     width={width}
@@ -386,8 +386,8 @@ const LogoIcon = ({ width = 70, height = 70 }: LogoIconProps) => (
     <path
       fill="none"
       stroke="#FFF"
-      stroke-miterlimit="10"
-      stroke-width=".1"
+      strokeMiterlimit="10"
+      strokeWidth=".1"
       d="M41.8,22.8"
       opacity=".2"
     ></path>

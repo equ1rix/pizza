@@ -6,8 +6,6 @@ import PizzaCustomization from "../pizzacustomization";
 import Button from "../button";
 import { useDispatch } from "react-redux";
 import { ADD_PIZZA } from "../../redux/actions";
-import store from "../../redux/store";
-import { useSelector } from "react-redux";
 
 type CardProps = {
   id: number;

@@ -55,6 +55,7 @@ const Card = ({
         id,
         label: name,
         dough: doughType,
+        src: src,
         size: pizzaSize,
         price: defaultPrice,
       },

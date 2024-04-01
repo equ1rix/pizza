@@ -4,12 +4,14 @@ export const ADD_PIZZA = `${REDUCER_NAME}ADD_PIZZA`;
 export const addPizza = ({
   id,
   label,
+  src,
   dough,
   size,
   price,
 }: {
   id: number;
   label: string;
+  src: string;
   dough: string;
   size: number;
   price: number;
@@ -18,6 +20,7 @@ export const addPizza = ({
   payload: {
     id,
     label,
+    src,
     dough,
     size,
     price,

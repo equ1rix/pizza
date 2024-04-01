@@ -11,7 +11,7 @@ export const doughTypeFilters: Filter[] = [
 ];
 
 export const pizzaSizeFilters: Filter[] = [
-  { label: "26 cm", id: 1 },
-  { label: "30 cm", id: 2 },
-  { label: "34 cm", id: 3 },
+  { label: "10 in", id: 1 },
+  { label: "12 cm", id: 2 },
+  { label: "14 cm", id: 3 },
 ];

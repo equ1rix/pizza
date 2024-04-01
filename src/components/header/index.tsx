@@ -34,7 +34,7 @@ const Header = ({
         <Button
           label={
             <div className="flex items-center space-x-1">
-              <span>{price}$ |</span>
+              <span>{price.toFixed(2)}$ |</span>
               <CartIcon />
               <span>{quantity}</span>
             </div>

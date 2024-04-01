@@ -11,6 +11,8 @@ export interface Pizza {
   dough: string;
   size: number;
   price: number;
+  quantity: number;
+  totalPrice: number;
 }
 export interface AppState {
   pizzas: Pizza[];
@@ -22,14 +24,34 @@ const initialState: AppState = {
 const pizzaReducer = (state = initialState, action: any): AppState => {
   switch (action.type) {
     case ADD_PIZZA:
-      const newPizza: Pizza = {
-        ...action.payload,
-        idCart: uuidv4(),
-      };
-      return {
-        ...state,
-        pizzas: [...state.pizzas, newPizza],
-      };
+      const existingPizzaIndex = state.pizzas.findIndex(
+        (pizza) =>
+          pizza.id === action.payload.id &&
+          pizza.label === action.payload.label &&
+          pizza.size === action.payload.size
+      );
+
+      if (existingPizzaIndex !== -1) {
+        const updatedPizzas = [...state.pizzas];
+        const existingPizza = updatedPizzas[existingPizzaIndex];
+        existingPizza.quantity += 1;
+        existingPizza.totalPrice += existingPizza.price;
+        return {
+          ...state,
+          pizzas: updatedPizzas,
+        };
+      } else {
+        const newPizza: Pizza = {
+          ...action.payload,
+          idCart: uuidv4(),
+          quantity: 1,
+          totalPrice: action.payload.price,
+        };
+        return {
+          ...state,
+          pizzas: [...state.pizzas, newPizza],
+        };
+      }
     case REMOVE_PIZZA:
       return {
         ...state,

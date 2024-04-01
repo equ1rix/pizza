@@ -1,9 +1,10 @@
 import React, { ReactNode } from "react";
 
-import CartIcon from "../icons/cartIcon";
+import { CartIcon } from "../iconbuttons/icons";
 
 import { mock } from "../../helpers";
 import Button from "../button";
+import { Link } from "react-router-dom";
 
 type HeaderProps = {
   openCart: () => void;
@@ -29,17 +30,18 @@ const Header = ({
           </h2>
         </div>
       </div>
-
-      <Button
-        label={
-          <div className="flex items-center space-x-1">
-            <span>{price}$ |</span>
-            <CartIcon />
-            <span>{quantity}</span>
-          </div>
-        }
-        onClick={openCart}
-      />
+      <Link to="/cartpage">
+        <Button
+          label={
+            <div className="flex items-center space-x-1">
+              <span>{price}$ |</span>
+              <CartIcon />
+              <span>{quantity}</span>
+            </div>
+          }
+          onClick={openCart}
+        />
+      </Link>
     </div>
   );
 };

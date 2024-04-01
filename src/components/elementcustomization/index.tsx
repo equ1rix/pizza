@@ -4,13 +4,14 @@ import { mock } from "../../helpers";
 
 type ElementCustomizationProps = {
   id?: number;
-  text: string;
+  label: string;
   onClick: () => void;
   isActive: boolean;
 };
 
 const ElementCustomization = ({
-  text = "",
+  id,
+  label,
   onClick = mock,
   isActive = false,
 }: ElementCustomizationProps) => {
@@ -18,8 +19,8 @@ const ElementCustomization = ({
     ? "bg-white min-w-[75px] h-[35px] rounded-lg flex-grow flex items-center justify-center text-base"
     : "min-w-[75px] flex-grow flex items-center justify-center text-base";
   return (
-    <li className={elementStyle} onClick={onClick}>
-      {text}
+    <li key={id} className={elementStyle} onClick={onClick}>
+      {label}
     </li>
   );
 };

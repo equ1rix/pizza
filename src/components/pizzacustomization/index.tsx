@@ -28,7 +28,9 @@ const PizzaCustomization = ({
         {doughTypeFilters.map((filter: Filter) => {
           return (
             <ElementCustomization
-              text={filter.label}
+              key={filter.id}
+              id={filter.id}
+              label={filter.label}
               onClick={() => onChangeDough(filter.label)}
               isActive={filter.label == dough}
             />
@@ -39,7 +41,9 @@ const PizzaCustomization = ({
         {pizzaSizeFilters.map((filter: Filter) => {
           return (
             <ElementCustomization
-              text={filter.label}
+              key={filter.id}
+              id={filter.id}
+              label={filter.label}
               onClick={() => onChangeSize(filter.id)}
               isActive={filter.id == size}
             />

@@ -9,9 +9,19 @@ import {
 
 import ElementCustomization from "../elementcustomization";
 
-type PizzaCustomizationProps = {};
+type PizzaCustomizationProps = {
+  onChangeDough: (dough: string) => void;
+  onChangeSize: (size: number) => void;
+  dough: string;
+  size: number;
+};
 
-const PizzaCustomization = ({}: PizzaCustomizationProps) => {
+const PizzaCustomization = ({
+  dough,
+  size,
+  onChangeDough = mock,
+  onChangeSize = mock,
+}: PizzaCustomizationProps) => {
   return (
     <div className="bg-customizationBG rounded-lg flex flex-col p-2">
       <ul className="flex mb-2">
@@ -19,8 +29,8 @@ const PizzaCustomization = ({}: PizzaCustomizationProps) => {
           return (
             <ElementCustomization
               text={filter.label}
-              onClick={() => mock}
-              isActive={false}
+              onClick={() => onChangeDough(filter.label)}
+              isActive={filter.label == dough}
             />
           );
         })}
@@ -30,8 +40,8 @@ const PizzaCustomization = ({}: PizzaCustomizationProps) => {
           return (
             <ElementCustomization
               text={filter.label}
-              onClick={() => mock}
-              isActive={false}
+              onClick={() => onChangeSize(filter.id)}
+              isActive={filter.id == size}
             />
           );
         })}

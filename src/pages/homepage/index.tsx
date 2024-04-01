@@ -2,7 +2,7 @@ import React from "react";
 
 import Header from "../../components/header";
 import PizzaCards from "../../components/pizzacards";
-import LogoIcon from "../../components/icons/logoIcon";
+import { LogoIcon } from "../../components/iconbuttons/icons";
 import { mock } from "../../helpers";
 import { useSelector } from "react-redux";
 import { selectPizza } from "../../redux/selector";

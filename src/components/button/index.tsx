@@ -14,7 +14,7 @@ const BUTTON_STYLE: Record<ButtonType, string> = {
   CART: "bg-main rounded-full text-white text-xl font-semibold py-2 px-4 ",
   ADD: "rounded-full text-main border border-main border-2 font-semibold text-lg py-2 px-4 ",
   DISABLED:
-    "rounded-xl text-slate-500 border border-gray border-2 font-semibold text-lg py-2 px-4 ",
+    "rounded-full text-slate-500 border border-gray border-2 font-semibold text-lg py-2 px-4 ",
 };
 
 type ButtonProps = {

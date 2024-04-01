@@ -1,13 +1,14 @@
 import React from "react";
 
 import Header from "../../components/header";
-import LogoIcon from "../../components/icons/logoIcon";
+import { LogoIcon } from "../../components/iconbuttons/icons";
 import { mock } from "../../helpers";
 import { useSelector } from "react-redux";
 import { selectPizza } from "../../redux/selector";
 import Cart from "../../components/cart";
-import CartIcon from "../../components/icons/cartIcon";
+import { CartIcon } from "../../components/iconbuttons/icons";
 import Button from "../../components/button";
+import { Link } from "react-router-dom";
 
 const Cartpage = () => {
   const state = useSelector(selectPizza);
@@ -22,13 +23,21 @@ const Cartpage = () => {
           <h2 className="text-black font-bold text-2xl ">CART</h2>
         </div>
         <div
-          className=" overflow-y-auto"
+          className="h-[500px] overflow-y-auto"
           style={{ maxHeight: `calc(100% - ${100}px)` }}
         >
           <Cart />
         </div>
-        <div className="h-[50px] flex p-4 justify-end place-items-center">
-          <Button onClick={mock} label="Go back" />
+        <div className="h-[60px] flex p-4 justify-between place-items-center">
+          <Link to="/ ">
+            <Button onClick={mock} label="<- Go Back" type="DISABLED" />
+          </Link>
+          <Button
+            onClick={() => {
+              alert("You don't have money))");
+            }}
+            label="Pay"
+          />
         </div>
       </div>
     </div>

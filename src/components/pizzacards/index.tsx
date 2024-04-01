@@ -3,7 +3,9 @@ import React from "react";
 import { pizzas } from "../../helpers/mock";
 import Card from "../card";
 
-const PizzaCards = ({}) => {
+type PizzaCardsProps = {};
+
+const PizzaCards = ({}: PizzaCardsProps) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 justify-items-center align-items-center gap-4 p-4 overflow-y-auto max-h-full">
       {pizzas.map((el) => {

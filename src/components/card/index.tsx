@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { mock } from "../../helpers";
 
@@ -7,8 +7,7 @@ import Button from "../button";
 
 type CardProps = {
   prices?: {
-    thin: { [key: number]: number };
-    traditional: { [key: number]: number };
+    [type: string]: { [key: number]: number };
   };
   src?: string;
   alt?: string;
@@ -27,7 +26,17 @@ const Card = ({
   openDetails = mock,
   type = "",
 }: CardProps) => {
-  const defaultPrice = prices?.thin?.[10] || 0;
+  const [doughType, setDoughType] = useState<string>("thin");
+  const [pizzaSize, setPizzaSize] = useState<number>(10);
+
+  const setDough = (dough: string) => {
+    setDoughType(dough);
+  };
+
+  const setSize = (size: number) => {
+    setPizzaSize(size);
+  };
+  const defaultPrice = prices?.[doughType]?.[pizzaSize] || 0;
 
   return (
     <div className="p-4 flex flex-col justify-center min-w-[260px] h-[426px]">
@@ -40,7 +49,13 @@ const Card = ({
       <label className="text-black text-3xl font-bold flex items-center justify-center mb-4">
         {label}
       </label>
-      <PizzaCustomization />
+      <PizzaCustomization
+        dough={doughType}
+        size={pizzaSize}
+        onChangeDough={setDough}
+        onChangeSize={setSize}
+      />
+
       <div className="flex justify-between m-2">
         <p className="text-black text-2xl font-semibold">{defaultPrice}$</p>
         <Button onClick={onAdd} label="+ ADD" type={type} />

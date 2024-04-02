@@ -1,4 +1,5 @@
 export const REDUCER_NAME = "PIZZA";
+
 export const ADD_PIZZA = `${REDUCER_NAME}ADD_PIZZA`;
 export const REMOVE_PIZZA = `${REDUCER_NAME}REMOVE_PIZZA`;
 

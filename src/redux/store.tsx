@@ -1,6 +1,7 @@
 import { createStore, combineReducers } from "redux";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+
 import pizzaReducer, { REDUCER_NAME as PIZZA_REDUCER_NAME } from "./reducer";
 
 const persistConfig = {

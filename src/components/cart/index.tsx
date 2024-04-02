@@ -1,10 +1,10 @@
-import React from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+
+import { removePizza } from "../../redux/actions";
+import { selectPizza } from "../../redux/selector";
 
 import CartElement from "../cartelement";
-import { useSelector } from "react-redux";
-import { selectPizza } from "../../redux/selector";
-import { useDispatch } from "react-redux";
-import { removePizza } from "../../redux/actions";
 
 type CartProps = {};
 

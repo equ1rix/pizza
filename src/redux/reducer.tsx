@@ -1,6 +1,8 @@
-import { mockData } from "../helpers/mock";
-import { ADD_PIZZA, REDUCER_NAME, REMOVE_PIZZA } from "./actions";
 import { v4 as uuidv4 } from "uuid";
+
+import { mockData } from "../helpers";
+
+import { ADD_PIZZA, REDUCER_NAME, REMOVE_PIZZA } from "./actions";
 export { REDUCER_NAME };
 
 export interface Pizza {
@@ -27,7 +29,7 @@ const pizzaReducer = (state = initialState, action: any): AppState => {
       const existingPizzaIndex = state.pizzas.findIndex(
         (pizza) =>
           pizza.id === action.payload.id &&
-          pizza.label === action.payload.label &&
+          pizza.dough === action.payload.dough &&
           pizza.size === action.payload.size
       );
 

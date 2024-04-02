@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import { mock } from "../../helpers";
+import { ADD_PIZZA } from "../../redux/actions";
 
 import PizzaCustomization from "../pizzacustomization";
 import Button from "../button";
-import { useDispatch } from "react-redux";
-import { ADD_PIZZA } from "../../redux/actions";
 
 type CardProps = {
   id: number;

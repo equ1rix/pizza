@@ -1,6 +1,5 @@
-import React from "react";
-
 import { pizzas } from "../../helpers/mock";
+
 import Card from "../card";
 
 type PizzaCardsProps = {};

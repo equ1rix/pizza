@@ -1,14 +1,14 @@
-import React from "react";
-
-import Header from "../../components/header";
-import { LogoIcon } from "../../components/iconbuttons/icons";
-import { mock } from "../../helpers";
-import { useSelector } from "react-redux";
-import { selectPizza } from "../../redux/selector";
-import Cart from "../../components/cart";
-import { CartIcon } from "../../components/iconbuttons/icons";
-import Button from "../../components/button";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+import { selectPizza } from "../../redux/selector";
+import { mock } from "../../helpers";
+
+import { LogoIcon } from "../../components/iconbuttons/icons";
+import { CartIcon } from "../../components/iconbuttons/icons";
+import Cart from "../../components/cart";
+import Header from "../../components/header";
+import Button from "../../components/button";
 
 const Cartpage = () => {
   const state = useSelector(selectPizza);
@@ -39,7 +39,9 @@ const Cartpage = () => {
             <Button onClick={mock} label="<- Go Back" type="DISABLED" />
           </Link>
           <div className="flex place-items-center">
-            <p className="m-3 text-black font-bold text-2xl">{price}$</p>
+            <p className="m-3 text-black font-bold text-2xl">
+              {price.toFixed(2)}$
+            </p>
             <Button
               onClick={() => {
                 alert("You don't have money))");

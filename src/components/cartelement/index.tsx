@@ -1,8 +1,6 @@
 import { mock } from "../../helpers";
-import React from "react";
+
 import { DeleteButton } from "../iconbuttons";
-import { useDispatch } from "react-redux";
-import { removePizza } from "../../redux/actions";
 
 type CartElementProps = {
   openDetails?: () => void;

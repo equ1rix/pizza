@@ -1,10 +1,10 @@
-import React, { ReactNode } from "react";
-
-import { CartIcon } from "../iconbuttons/icons";
+import { ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 import { mock } from "../../helpers";
+
+import { CartIcon } from "../iconbuttons/icons";
 import Button from "../button";
-import { Link } from "react-router-dom";
 
 type HeaderProps = {
   openCart: () => void;

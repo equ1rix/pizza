@@ -7,6 +7,8 @@ module.exports = {
         main: "#fe5e1f",
         secondMain: "#ff8757",
         customizationBG: "#f3f3f3",
+        text: "#ffe3d4",
+        mainText: "#ffc4a9",
       },
     },
   },

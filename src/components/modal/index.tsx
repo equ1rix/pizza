@@ -12,12 +12,12 @@ const Modal = ({ onClose = () => {}, title = "" }: ModalProps) => (
         <h3 className="text-white fz font-bold text-2xl">{title}</h3>
         <CloseButton onClick={onClose} />
       </div>
-      <div className="text-customizationBG">
+      <div className="text-text">
         <p className="text-lg font-medium mt-2">
           The coursework was completed by the student of the KI-21-2/9-68 group:
         </p>
         <p className="text-xl font-semibold">Pavlenko Nazar Ihorovych</p>
-        <p className="italic pt-5">
+        <p className="italic pt-5 text-mainText">
           "TypeScript and the React framework were used as the foundation, with
           styling handled by the Tailwind CSS library"
         </p>
